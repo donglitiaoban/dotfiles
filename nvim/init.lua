@@ -1,0 +1,6 @@
+require('plugin_manager')
+require('common')
+require('colorscheme')
+require('lsp')
+require('keymap')
+-- require('neovide')
