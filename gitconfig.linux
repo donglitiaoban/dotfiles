@@ -1,0 +1,7 @@
+[user]
+	email = donglitiaoban@outlook.com
+	name = donglitiaoban
+[credential "helperselector"]
+	selected = manager
+[http]
+	proxy = http://127.0.0.1:7897

@@ -49,15 +49,15 @@ if __name__ == "__main__":
         target = winpath if is_windows else unixpath
         backup_replace(repo.joinpath("pwsh"), target)
 
-    # # gitconfig
-    # if command_exists("git"):
-    #     target = home.joinpath(".gitconfig")
-    #     repofile = "gitconfig.windows" if is_windows else "gitconfig.linux"
-    #     backup_replace(repo.joinpath(repofile), target)
+    # gitconfig
+    if command_exists("git"):
+        target = home.joinpath(".gitconfig")
+        repofile = "gitconfig.windows" if is_windows else "gitconfig.linux"
+        backup_replace(repo.joinpath(repofile), target)
 
-    # # zsh
-    # if command_exists("zsh"):
-    #     filename = "zshrc"
-    #     source = repo.joinpath("zshrc")
-    #     target = home.joinpath(add_dot(filename))
-    #     backup_replace(source, home.joinpath(".zshrc"))
+    # zsh
+    if command_exists("zsh"):
+        filename = "zshrc"
+        source = repo.joinpath("zshrc")
+        target = home.joinpath(add_dot(filename))
+        backup_replace(source, home.joinpath(".zshrc"))
