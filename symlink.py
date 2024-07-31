@@ -3,11 +3,10 @@ import shutil
 from pathlib import Path
 from datetime import datetime
 
-timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-
 # source是repo已有的文件（夹），target是要建立符号链接的路径
 def backup_replace(source: Path, target: Path) -> None:
     if target.exists(follow_symlinks=False):
+        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
         newname = target.stem + timestamp + target.suffix
         target.rename(target.parent.joinpath(newname))
     target.symlink_to(source, target_is_directory=source.is_dir())
