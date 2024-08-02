@@ -95,10 +95,13 @@ if wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
     config.default_prog = { 'zsh' }
   end
   config.font_size = 12
-  config.font = wezterm.font 'Maple Mono SC NF'
-  -- config.font = wezterm.font_with_fallback {
-  --   'FiraCode Nerd Font Mono',
-  --   'Source Han Sans CN',
-  -- }
+  -- config.font = wezterm.font 'Maple Mono SC NF'
+  config.font = wezterm.font_with_fallback {
+    'FiraCode Nerd Font Mono',
+    {
+      family = 'Source Han Sans CN',
+      scale = 1.18,
+    },
+  }
   end
 return config
