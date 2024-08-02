@@ -4,4 +4,6 @@
 [credential "helperselector"]
 	selected = manager
 [http]
-	proxy = http://127.0.0.1:7897
+	proxy = http://10.1.20.43:7897
+[core]
+	editor = nvim
