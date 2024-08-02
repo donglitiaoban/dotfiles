@@ -1,9 +1,9 @@
 [user]
 	email = donglitiaoban@outlook.com
 	name = donglitiaoban
-[credential "helperselector"]
-	selected = manager
 [http]
 	proxy = http://10.1.20.43:7897
 [core]
 	editor = nvim
+[credential]
+	credentialStore = cache
