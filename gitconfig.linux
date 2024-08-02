@@ -2,8 +2,11 @@
 	email = donglitiaoban@outlook.com
 	name = donglitiaoban
 [http]
-	proxy = http://10.1.20.43:7897
+	proxy = http://localhost:7897
 [core]
 	editor = nvim
 [credential]
 	credentialStore = cache
+	helper = /usr/bin/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
