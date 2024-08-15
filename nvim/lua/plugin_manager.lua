@@ -19,14 +19,7 @@ require("lazy").setup({
     lazy = false,
     cond = jit.os ~= 'Windows'
   },
-  {
-    "neanias/everforest-nvim",
-    version = false,
-    lazy = false,
-    -- make sure to load this before all the other start plugins
-    priority = 1000,
-    -- Optional; default configuration will be used if setup isn't called.
-  },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     "keaising/im-select.nvim",
     cond = jit.os == 'Windows'
@@ -45,18 +38,6 @@ require("lazy").setup({
       })
     end,
   },
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     require('tokyonight').setup({
-  --       styles = {
-  --         comments = { italic = false },
-  --       }
-  --     })
-  --   end,
-  -- },
   {
     -- trim trailing whitespaces and empty lines
     "mcauley-penney/tidy.nvim",
@@ -75,21 +56,9 @@ require("lazy").setup({
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
-  -- {
-  --   'f-person/auto-dark-mode.nvim',
-  --   config = function()
-  --     require('auto-dark-mode').setup({
-  --       update_interval = 1000,
-  --       set_dark_mode = function()
-  --         vim.opt.background = 'dark'
-  --         vim.cmd("colorscheme everforest")
-  --       end,
-  --       set_light_mode = function()
-  --         vim.opt.background = 'light'
-  --         vim.cmd("colorscheme tokyonight-day")
-  --       end,
-
-  --     })
-  --   end,
-  -- },
+  {
+    'f-person/auto-dark-mode.nvim',
+    config = function()
+          end,
+  },
 })
