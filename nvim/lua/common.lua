@@ -30,7 +30,7 @@ vim.o.sidescrolloff = scrolloff
 vim.wo.cursorline = true
 vim.wo.signcolumn = 'yes'
 
-vim.opt.clipboard = 'unnamedplus'
+vim.o.clipboard = 'unnamedplus'
 
 -- highlight column on no.80 char
 vim.o.colorcolumn = '80'

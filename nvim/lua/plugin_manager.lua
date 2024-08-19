@@ -17,12 +17,12 @@ require("lazy").setup({
   {
     "typicode/bg.nvim",
     lazy = false,
-    cond = jit.os ~= 'Windows'
+    cond = jit.os ~= 'Windows',
   },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     "keaising/im-select.nvim",
-    cond = jit.os == 'Windows'
+    cond = jit.os == 'Windows',
   },
   {
     'nvim-lualine/lualine.nvim',
@@ -56,9 +56,9 @@ require("lazy").setup({
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
-  {
-    'f-person/auto-dark-mode.nvim',
-    config = function()
-          end,
-  },
+  -- {
+  --   'f-person/auto-dark-mode.nvim',
+  --   config = function()
+  --         end,
+  -- },
 })
