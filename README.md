@@ -19,6 +19,15 @@ Add 3rd party bucket [scoop-it](https://github.com/younger-1/scoop-it) for [im-s
 scoop bucket add scoop-it https://github.com/younger-1/scoop-it
 ```
 
+Using [`luarocks` bundled with `lua5.1`](https://github.com/nvim-neorocks/rocks-scoop) on windows
+```
+scoop bucket add neorocks-scoop https://github.com/nvim-neorocks/rocks-scoop.git
+```
+
+```
+scoop install neorocks-scoop/luarocks
+```
+
 Using [paru](https://github.com/Morganamilo/paru) for AUR helper
 
 Use `aur/git-credential-manager-core-bin` in archlinux
