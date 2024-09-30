@@ -5,3 +5,8 @@
 	proxy = http://localhost:12334
 [core]
 	editor = nvim
+[credential]
+	helper = /usr/bin/git-credential-manager
+	credentialStore = cache
+[credential "https://dev.azure.com"]
+	useHttpPath = true
