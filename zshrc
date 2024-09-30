@@ -1,4 +1,4 @@
-export HTTP_PROXY="10.1.20.43:7897"
+export HTTP_PROXY="localhost:12334"
 
 alias n="nvim"
 alias c="clear"
