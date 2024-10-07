@@ -1,23 +1,32 @@
 vim9script
 
 set nocompatible
-syntax on
 
 language en_US
 
-set termguicolors
-set background=light
-colorscheme catppuccin_latte
+syntax on
 
-# enable lightline
-set laststatus=2
+# 开启混合行号，当前行显示行号，其他行显示相对行号
+set number relativenumber
 
-g:lightline = { 'colorscheme': 'catppuccin_latte' }
+# 高亮光标所在行
+set cursorline
 
 if has('gui_running')
+
+    # colorscheme
+    set termguicolors
+    set background=light
+    colorscheme catppuccin_latte
+    # enable lightline
+    set laststatus=2
+
+    # remove all gui menus and scrollbars
     set guioptions=
+
     set guifont=Maple\ Mono\ SC\ NF:h12
     set guicursor+=a:blinkon0
+    g:lightline = { 'colorscheme': 'catppuccin_latte' }
 endif
 
 if has('gui_win32')
