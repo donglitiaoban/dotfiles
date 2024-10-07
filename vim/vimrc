@@ -1,0 +1,18 @@
+vim9script
+
+set nocompatible
+syntax on
+
+language en_US
+
+if has('gui_running')
+    set termguicolors
+    set background=light
+    colorscheme catppuccin_latte
+    set guioptions=
+    set guifont=Maple\ Mono\ SC\ NF:h12
+    set guicursor+=a:blinkon0
+endif
+
+if has('gui_win32')
+endif

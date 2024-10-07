@@ -1,0 +1,3 @@
+[submodule "vim/pack/default/start/catppuccin"]
+	path = vim/pack/default/start/catppuccin
+	url = https://github.com/catppuccin/vim
