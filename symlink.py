@@ -60,3 +60,5 @@ if __name__ == "__main__":
         source = repo.joinpath("zshrc")
         target = home.joinpath(add_dot(filename))
         backup_replace(source, home.joinpath(".zshrc"))
+    
+    print("script executed")
