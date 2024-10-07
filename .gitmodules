@@ -1,3 +1,6 @@
 [submodule "vim/pack/default/start/catppuccin"]
 	path = vim/pack/default/start/catppuccin
 	url = https://github.com/catppuccin/vim
+[submodule "vim/pack/default/start/lightline"]
+	path = vim/pack/default/start/lightline
+	url = https://github.com/itchyny/lightline.vim

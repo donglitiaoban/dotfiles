@@ -5,10 +5,16 @@ syntax on
 
 language en_US
 
+set termguicolors
+set background=light
+colorscheme catppuccin_latte
+
+# enable lightline
+set laststatus=2
+
+g:lightline = { 'colorscheme': 'catppuccin_latte' }
+
 if has('gui_running')
-    set termguicolors
-    set background=light
-    colorscheme catppuccin_latte
     set guioptions=
     set guifont=Maple\ Mono\ SC\ NF:h12
     set guicursor+=a:blinkon0
