@@ -10,8 +10,6 @@ Import-Module PSReadLine
 
 # Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
 
-# Vi insert mode by default
-Write-Host -NoNewLine "`e[6 q"
 # use cursor as Vi mode indictor
 # no blinking!
 function OnViModeChange {
@@ -26,6 +24,9 @@ function OnViModeChange {
 
 Set-PSReadLineOption -ViModeIndicator Script `
 -ViModeChangeHandler $Function:OnViModeChange
+
+# not work
+# Set-PSReadLineKeyHandler -Chord 'Ctrl+Oem4' -Function ViCommandMode
 
 # Import-Module PSFzf
 # Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
