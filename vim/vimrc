@@ -21,4 +21,6 @@ if has('gui_running')
 endif
 
 if has('gui_win32')
+    # set renderoptions=type:directx,gamma:1.0,taamode:2
+    set renderoptions=type:directx,geom:1,renmode:4
 endif
