@@ -56,9 +56,7 @@ require("lazy").setup({
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
-  -- {
-  --   'f-person/auto-dark-mode.nvim',
-  --   config = function()
-  --         end,
-  -- },
+  {
+    'f-person/auto-dark-mode.nvim',
+  },
 })

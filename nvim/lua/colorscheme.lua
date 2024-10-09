@@ -15,18 +15,18 @@ require('catppuccin').setup({
   term_colors = true,
 })
 
--- require('auto-dark-mode').setup({
---   update_interval = 5000,
---   set_dark_mode = function()
---     vim.opt.background = 'dark'
---     vim.cmd.colorscheme 'catppuccin-mocha'
---   end,
---   set_light_mode = function()
---     vim.opt.background = 'light'
---     vim.cmd.colorscheme 'catppuccin'
---   end,
--- })
+require('auto-dark-mode').setup({
+  update_interval = 1000,
+  set_dark_mode = function()
+    vim.opt.background = 'dark'
+    vim.cmd.colorscheme 'catppuccin-mocha'
+  end,
+  set_light_mode = function()
+    vim.opt.background = 'light'
+    vim.cmd.colorscheme 'catppuccin'
+  end,
+})
 
-vim.o.termguicolors = true
-vim.o.background = 'light'
-vim.cmd.colorscheme 'catppuccin'
+-- vim.o.termguicolors = true
+-- vim.o.background = 'light'
+-- vim.cmd.colorscheme 'catppuccin'
