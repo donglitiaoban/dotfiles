@@ -10,23 +10,29 @@
 --   -- transparent_background_level = 2,
 -- })
 
-require('catppuccin').setup({
-  no_italic = true,
-  term_colors = true,
-})
+-- require('catppuccin').setup({
+--   no_italic = true,
+--   term_colors = true,
+-- })
+-- 
+-- require('auto-dark-mode').setup({
+--   update_interval = 1000,
+--   set_dark_mode = function()
+--     vim.opt.background = 'dark'
+--     vim.cmd.colorscheme 'catppuccin-mocha'
+--   end,
+--   set_light_mode = function()
+--     vim.opt.background = 'light'
+--     vim.cmd.colorscheme 'catppuccin'
+--   end,
+-- })
 
-require('auto-dark-mode').setup({
-  update_interval = 1000,
-  set_dark_mode = function()
-    vim.opt.background = 'dark'
-    vim.cmd.colorscheme 'catppuccin-mocha'
-  end,
-  set_light_mode = function()
-    vim.opt.background = 'light'
-    vim.cmd.colorscheme 'catppuccin'
-  end,
-})
-
--- vim.o.termguicolors = true
--- vim.o.background = 'light'
+vim.o.termguicolors = true
+vim.o.background = 'light'
 -- vim.cmd.colorscheme 'catppuccin'
+-- vim.cmd.colorscheme 'zenbones'
+vim.cmd.colorscheme 'deepwhite'
+
+-- require('deepwhite').setup({
+--   low_blue_light = true,
+-- })
