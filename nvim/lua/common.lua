@@ -53,3 +53,6 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
 
+if jit.os == 'Windows' then
+  vim.o.shell = 'pwsh.exe'
+end
