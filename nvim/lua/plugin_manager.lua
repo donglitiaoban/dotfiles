@@ -22,7 +22,13 @@ require("lazy").setup({
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     "keaising/im-select.nvim",
-    cond = jit.os == 'Windows',
+    cond = jit.os ~= 'Linux',
+    config = function()
+      require('im_select').setup({
+        -- 异步执行不生效
+        async_switch_im = false,
+      })
+    end,
   },
   {
     'nvim-lualine/lualine.nvim',
