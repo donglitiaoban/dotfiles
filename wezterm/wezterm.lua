@@ -46,6 +46,11 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
     config.default_prog = { 'pwsh.exe' }
   end
 
+  local res = wezterm.glob('nu', os.getenv('USERPROFILE') .. '/scoop/apps')
+  if #res ~= 0 then
+    config.default_prog = { 'nu.exe' }
+  end
+
   config.font_size = 12
   config.line_height = 1.2
   config.font = wezterm.font_with_fallback {

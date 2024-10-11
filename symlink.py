@@ -68,7 +68,14 @@ if __name__ == "__main__":
         source = repo.joinpath("zshrc")
         target = home.joinpath(add_dot(filename))
         backup_replace(source, home.joinpath(".zshrc"))
-    
+
+    # nushell
+    if command_exists("nu"):
+        winpath = home.joinpath("AppData", "Roaming", "nushell")
+        unixpath = home.joinpath(".config", "nushell")
+        target = winpath if is_windows else unixpath
+        backup_replace(repo.joinpath("nushell"), target)
+
     # 因为python未识别导致脚本未运行，没有输出看上去就像正常执行
     # 加一句print，看到就代表脚本已运行
     print("script executed")
