@@ -1,6 +1,0 @@
-python symlink.py
-ls
-asd
-nvim
-cd dotfiles\
-git status
