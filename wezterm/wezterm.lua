@@ -52,13 +52,13 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   end
 
   config.font_size = 12
-  config.line_height = 1.2
+  config.line_height = 1.1
   config.font = wezterm.font_with_fallback {
     'FiraCode Nerd Font Mono',
     -- 'JetBrainsMono Nerd Font Mono',
     {
       family = '思源等宽',
-      scale = 1.18,
+      scale = 1.13,
     },
   }
   -- config.font = wezterm.font 'Maple Mono SC NF'

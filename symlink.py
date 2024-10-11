@@ -3,13 +3,12 @@ import shutil
 from pathlib import Path
 from datetime import datetime
 
-# source是repo已有的文件（夹），target是要建立符号链接的路径
-def backup_replace(source: Path, target: Path) -> None:
-    if target.exists(follow_symlinks=False):
+def backup_replace(src: Path, dst: Path) -> None:
+    if dst.exists(follow_symlinks=False):
         timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-        newname = target.stem + timestamp + target.suffix
-        target.rename(target.parent.joinpath(newname))
-    target.symlink_to(source, target_is_directory=source.is_dir())
+        newname = dst.stem + timestamp + dst.suffix
+        dst.rename(dst.parent.joinpath(newname))
+    dst.symlink_to(src, target_is_directory=src.is_dir())
 
 
 def command_exists(command: str) -> bool:
@@ -30,51 +29,58 @@ if __name__ == "__main__":
     # wezterm
     if command_exists("wezterm"):
         directory = "wezterm"
-        source = repo.joinpath(directory)
-        target = home.joinpath(".config", directory)
-        backup_replace(source, target)
+        src = repo.joinpath(directory)
+        dst = home.joinpath(".config", directory)
+        backup_replace(src, dst)
 
-    # nvim
+    # vim
     if command_exists("vim"):
-        winpath = home.joinpath("vimfiles")
-        unixpath = home.joinpath(".vim")
-        target = winpath if is_windows else unixpath
-        backup_replace(repo.joinpath("vim"), target)
+        windst = home.joinpath("vimfiles")
+        unixdst = home.joinpath(".vim")
+        dst = windst if is_windows else unixdst
+        backup_replace(repo.joinpath("vim"), dst)
 
+    # neovide
+    if command_exists("neovide"):
+        windst = home.joinpath("AppData", "Roaming", "neovide")
+        unixdst = home.joinpath(".config", "neovide")
+        dst = windst if is_windows else unixdst 
+        src = repo.joinpath("neovide")
+        backup_replace(src, dst)
 
     # nvim
     if command_exists("nvim"):
-        winpath = home.joinpath("AppData", "Local", "nvim")
-        unixpath = home.joinpath(".config", "nvim")
-        target = winpath if is_windows else unixpath
-        backup_replace(repo.joinpath("nvim"), target)
+        windst = home.joinpath("AppData", "Local", "nvim")
+        unixdst = home.joinpath(".config", "nvim")
+        dst = windst if is_windows else unixdst
+        backup_replace(repo.joinpath("nvim"), dst)
 
     # pwsh or powershell
     if command_exists("pwsh"):
-        winpath = home.joinpath("Documents", "PowerShell")
-        unixpath = home.joinpath(".config", "powershell")
-        target = winpath if is_windows else unixpath
-        backup_replace(repo.joinpath("pwsh"), target)
+        windst = home.joinpath("Documents", "PowerShell")
+        unixdst = home.joinpath(".config", "powershell")
+        dst = windst if is_windows else unixdst 
+        backup_replace(repo.joinpath("pwsh"), dst)
 
     # gitconfig
     if command_exists("git"):
-        target = home.joinpath(".gitconfig")
-        repofile = "gitconfig.windows" if is_windows else "gitconfig.linux"
-        backup_replace(repo.joinpath(repofile), target)
+        dst = home.joinpath(".gitconfig")
+        src_file = "gitconfig.windows" if is_windows else "gitconfig.linux"
+        backup_replace(repo.joinpath(src_file), dst)
 
     # zsh
     if command_exists("zsh"):
         filename = "zshrc"
-        source = repo.joinpath("zshrc")
-        target = home.joinpath(add_dot(filename))
-        backup_replace(source, home.joinpath(".zshrc"))
+        src = repo.joinpath("zshrc")
+        dst = home.joinpath(add_dot(filename))
+        backup_replace(src, dst)
 
     # nushell
     if command_exists("nu"):
-        winpath = home.joinpath("AppData", "Roaming", "nushell")
-        unixpath = home.joinpath(".config", "nushell")
-        target = winpath if is_windows else unixpath
-        backup_replace(repo.joinpath("nushell"), target)
+        windst = home.joinpath("AppData", "Roaming", "nushell")
+        unixdst = home.joinpath(".config", "nushell")
+        dst = windst if is_windows else unixdst
+        backup_replace(repo.joinpath("nushell"), dst)
 
     # 因为python未识别导致脚本未运行，没有输出看上去就像正常执行
     # 加一句print，看到就代表脚本已运行

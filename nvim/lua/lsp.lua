@@ -12,7 +12,7 @@ require('mason-lspconfig').setup({
     'pyright',
     'tsserver',
     'lua_ls',
-    --'typst_lsp',
+    'typst_lsp',
     'powershell_es',
   },
   handlers = {

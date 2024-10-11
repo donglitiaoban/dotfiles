@@ -1,11 +1,11 @@
 if vim.g.neovide and jit.os == 'Windows' then
   vim.o.termguicolors = true
-  vim.o.guifont = 'Maple Mono SC NF' ..
+  -- 字体设置在config.toml
+  -- -- vim.o.guifont = 'Maple Mono SC NF' ..
   -- vim.o.guifont = 'FiraCode Nerd Font Mono,' ..
-  --   '微软雅黑' ..
-  --   -- '思源等宽' ..
-     ':h12:#e-subpixelantialias' ..
-     ':#h-slight'
+  --   '思源等宽' ..
+  --   ':h12:b' ..
+  --   ':#h-normal'
   vim.g.neovide_refresh_rate = 120
   -- neovide padding的单位好像是像素，文档没写
   local padding = 4

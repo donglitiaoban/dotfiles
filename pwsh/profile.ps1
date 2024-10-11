@@ -1,5 +1,7 @@
 $env:POWERSHELL_TELEMETRY_OPTOUT=1
 $env:POWERSHELL_UPDATECHECK='off'
+$env:HTTP_PROXY="http://127.0.0.1:7897"
+$env:HTTPS_PROXY=$HTTP_PROXY
 
 New-Alias -Name n -Value nvim
 New-Alias -Name c -Value cls
