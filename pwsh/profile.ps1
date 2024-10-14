@@ -53,12 +53,14 @@ $PSReadLineOptions = @{
 
 Set-PSReadLineOption @PSReadlineOptions
 
-Import-Module posh-git
+# Import-Module posh-git
 
 function prompt {
   $prompt = Write-Prompt $(Get-Date -UFormat "%H:%M ") `
     -ForegroundColor ([ConsoleColor]::Blue)
-  $prompt += & $GitPromptScriptBlock
-  $prompt += "`r`n"
+  # $prompt += & $GitPromptScriptBlock
+  $prompt += Get-Location
+  # $prompt += $LASTEXITCODE
+  $prompt += "> `r`n"
   if ($prompt) { "$prompt" } else { '' }
 }
