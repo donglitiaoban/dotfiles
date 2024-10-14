@@ -10,7 +10,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
     'pyright',
-    'tsserver',
+    'ts_ls', -- not tsserver anymore
     'lua_ls',
     'typst_lsp',
     'powershell_es',
@@ -22,6 +22,7 @@ require('mason-lspconfig').setup({
     powershell_es = function ()
       require('lspconfig').powershell_es.setup({
         bundle_path = vim.fn.stdpath('data') .. '/mason/packages/powershell-editor-services',
+        shell = 'pwsh.exe'
       })
     end,
     lua_ls = function()
