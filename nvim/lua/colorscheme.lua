@@ -31,6 +31,7 @@ require('deepwhite').setup({
   -- low_blue_light = true,
 })
 
+-- 配色设置要在cmd.colorscheme前面
 vim.g.zenbones_italic_comments = false
 
 vim.o.termguicolors = true
