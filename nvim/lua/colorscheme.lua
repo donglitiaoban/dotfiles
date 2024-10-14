@@ -27,12 +27,14 @@
 --   end,
 -- })
 
--- vim.o.termguicolors = true
--- vim.o.background = 'light'
--- vim.cmd.colorscheme 'catppuccin'
--- vim.cmd.colorscheme 'zenbones'
--- vim.cmd.colorscheme 'deepwhite'
+require('deepwhite').setup({
+  -- low_blue_light = true,
+})
 
--- require('deepwhite').setup({
---   low_blue_light = true,
--- })
+vim.g.zenbones_italic_comments = false
+
+vim.o.termguicolors = true
+vim.o.background = 'light'
+-- vim.cmd.colorscheme 'catppuccin'
+vim.cmd.colorscheme 'zenbones'
+-- vim.cmd.colorscheme 'deepwhite'
