@@ -21,8 +21,10 @@ require("lazy").setup({
   },
   {
     "zenbones-theme/zenbones.nvim",
-    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
-    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- Optionally install Lush. Allows for more configuration 
+    -- or extending the colorscheme
+    -- If you don't want to install lush, 
+    -- make sure to set g:zenbones_compat = 1
     -- In Vim, compat mode is turned on as Lush only works in Neovim.
     dependencies = "rktjmp/lush.nvim",
     lazy = false,
@@ -33,22 +35,23 @@ require("lazy").setup({
     --     vim.cmd.colorscheme('zenbones')
     -- end
   },
-  {
-    "agorgl/nvim-bg",
-  },
-  {
-    "typicode/bg.nvim",
-    lazy = false,
-    cond = jit.os ~= 'Windows',
-  },
+  -- 暂时用不上
+  -- {
+  --   "agorgl/nvim-bg",
+  -- },
+  -- {
+  --   "typicode/bg.nvim",
+  --   lazy = false,
+  --   cond = jit.os ~= 'Windows',
+  -- },
   -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     "keaising/im-select.nvim",
     cond = jit.os ~= 'Linux',
     config = function()
       require('im_select').setup({
-        -- 异步执行不生效
-        async_switch_im = true,
+        -- 有时异步执行出bug
+        -- async_switch_im = false,
       })
     end,
   },
