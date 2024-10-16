@@ -24,6 +24,7 @@ config.default_cursor_style = 'SteadyBar'
 
 -- config.color_scheme = 'Catppuccin Latte'
 -- config.color_scheme = 'Rosé Pine Dawn (Gogh)'
+
 config.color_scheme = 'zenbones'
 
 config.keys = {
@@ -46,7 +47,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
     config.default_prog = { 'pwsh.exe' }
   end
 
-  local res = wezterm.glob('nu', os.getenv('USERPROFILE') .. '/scoop/apps')
+  res = wezterm.glob('nu', os.getenv('USERPROFILE') .. '/scoop/apps')
   if #res ~= 0 then
     config.default_prog = { 'nu.exe' }
   end
@@ -71,6 +72,11 @@ if wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
   if os.execute('which zsh') == true then
     config.default_prog = { 'zsh' }
   end
+
+  if os.execute('which nu') == true then
+    config.default_prog = { 'nu' }
+  end
+
   config.font_size = 12
   -- config.font = wezterm.font 'Maple Mono SC NF'
   config.font = wezterm.font_with_fallback {
