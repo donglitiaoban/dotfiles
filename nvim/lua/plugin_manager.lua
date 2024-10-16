@@ -35,15 +35,11 @@ require("lazy").setup({
     --     vim.cmd.colorscheme('zenbones')
     -- end
   },
-  -- 暂时用不上
-  -- {
-  --   "agorgl/nvim-bg",
-  -- },
-  -- {
-  --   "typicode/bg.nvim",
-  --   lazy = false,
-  --   cond = jit.os ~= 'Windows',
-  -- },
+  {
+    "typicode/bg.nvim",
+    lazy = false,
+    cond = jit.os ~= 'Windows',
+  },
   -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     "keaising/im-select.nvim",
