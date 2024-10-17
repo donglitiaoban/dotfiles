@@ -901,6 +901,9 @@ if (uname).operating-system =~ 'MS/Windows' {
   $env.config.shell_integration.osc133 = false
 }
 
+alias n = nvim
+alias c = clear
+
 alias gs = git status
 alias ga = git add
 alias gc = git commit
