@@ -14,7 +14,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- why this config not work
+  -- disabling luarocks becomes a undocumented feature for lazy.nvim
   -- rocks = {
   --   enabled = false,
   -- },
