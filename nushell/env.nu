@@ -103,3 +103,8 @@ $env.NU_PLUGIN_DIRS = [
 $env.EDITOR = 'nvim'
 $env.HTTP_PROXY = 'http://localhost:12334'
 $env.HTTPS_PROXY = $env.HTTP_PROXY
+
+
+if (uname).operating-system =~ 'MS/Windows' {
+  $env.HTTP_PROXY = 'http://localhost:7897'
+}
