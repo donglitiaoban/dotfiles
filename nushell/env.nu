@@ -101,3 +101,5 @@ $env.NU_PLUGIN_DIRS = [
 # source ($nu.default-config-dir | path join 'custom.nu')
 
 $env.EDITOR = 'nvim'
+$env.HTTP_PROXY = 'http://localhost:12334'
+$env.HTTPS_PROXY = $env.HTTP_PROXY
