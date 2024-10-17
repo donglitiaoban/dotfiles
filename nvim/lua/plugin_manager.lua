@@ -14,11 +14,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {
-    'Verf/deepwhite.nvim',
-    lazy = false,
-    priority = 1000,
-  },
+  -- why this config not work
+  -- rocks = {
+  --   enabled = false,
+  -- },
+  --
+  -- {
+  --   'Verf/deepwhite.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  -- },
   {
     "zenbones-theme/zenbones.nvim",
     -- Optionally install Lush. Allows for more configuration 
