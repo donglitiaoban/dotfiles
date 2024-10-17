@@ -901,3 +901,7 @@ if (uname).operating-system =~ 'MS/Windows' {
   $env.config.shell_integration.osc133 = false
 }
 
+alias gs = git status
+alias ga = git add
+alias gc = git commit
+alias gp = git push
