@@ -192,7 +192,7 @@ $env.config = {
 
     datetime_format: {
         normal: '%F %T'    # shows up in displays of variables or other datetime's outside of tables
-        table: '%T'          # generally shows up in tabular outputs such as ls. commenting this out will change it to the default human readable datetime format
+        table: '%F %T'          # generally shows up in tabular outputs such as ls. commenting this out will change it to the default human readable datetime format
     }
 
     explore: {
