@@ -1,1 +1,9 @@
 history.txt
+/.idea/.gitignore
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/dotfiles.iml
+/ideavimrc
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml
