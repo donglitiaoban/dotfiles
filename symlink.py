@@ -12,7 +12,7 @@ def backup_replace(src: Path, dst: Path) -> None:
 
 
 def command_exists(command: str) -> bool:
-    return shutil.which(command) != None
+    return shutil.which(command) is not None
 
 
 def add_dot(name: str) -> str:
@@ -75,6 +75,13 @@ if __name__ == "__main__":
         dst = home.joinpath(add_dot(filename))
         backup_replace(src, dst)
 
+    #ideavim
+    if command_exists("pycharm") or command_exists("rustrover"):
+        filename = "ideavimrc"
+        src = repo.joinpath(filename)
+        dst = home.joinpath(add_dot(filename))
+        backup_replace(src, dst)
+
     # nushell
     if command_exists("nu"):
         windst = home.joinpath("AppData", "Roaming", "nushell")
@@ -82,6 +89,7 @@ if __name__ == "__main__":
         dst = windst if is_windows else unixdst
         backup_replace(repo.joinpath("nushell"), dst)
 
+    # 看看
     # 因为python未识别导致脚本未运行，没有输出看上去就像正常执行
     # 加一句print，看到就代表脚本已运行
     print("script executed")
