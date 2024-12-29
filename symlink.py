@@ -27,69 +27,66 @@ if __name__ == "__main__":
     is_windows = os.name == "nt"
 
     # wezterm
-    if command_exists("wezterm"):
-        directory = "wezterm"
-        src = repo.joinpath(directory)
-        dst = home.joinpath(".config", directory)
-        backup_replace(src, dst)
+    directory = "wezterm"
+    src = repo.joinpath(directory)
+    dst = home.joinpath(".config", directory)
+    backup_replace(src, dst)
 
     # vim
-    if command_exists("vim"):
-        windst = home.joinpath("vimfiles")
-        unixdst = home.joinpath(".vim")
-        dst = windst if is_windows else unixdst
-        backup_replace(repo.joinpath("vim"), dst)
+    # windst = home.joinpath("vimfiles")
+    # unixdst = home.joinpath(".vim")
+    # dst = windst if is_windows else unixdst
+    # backup_replace(repo.joinpath("vim"), dst)
 
     # neovide
-    if command_exists("neovide"):
-        windst = home.joinpath("AppData", "Roaming", "neovide")
-        unixdst = home.joinpath(".config", "neovide")
-        dst = windst if is_windows else unixdst 
-        src = repo.joinpath("neovide")
-        backup_replace(src, dst)
+    # windst = home.joinpath("AppData", "Roaming", "neovide")
+    # unixdst = home.joinpath(".config", "neovide")
+    # dst = windst if is_windows else unixdst 
+    # src = repo.joinpath("neovide")
+    # backup_replace(src, dst)
 
     # nvim
-    if command_exists("nvim"):
-        windst = home.joinpath("AppData", "Local", "nvim")
-        unixdst = home.joinpath(".config", "nvim")
-        dst = windst if is_windows else unixdst
-        backup_replace(repo.joinpath("nvim"), dst)
+    windst = home.joinpath("AppData", "Local", "nvim")
+    unixdst = home.joinpath(".config", "nvim")
+    dst = windst if is_windows else unixdst
+    backup_replace(repo.joinpath("nvim"), dst)
 
-    # pwsh or powershell
-    if command_exists("pwsh"):
-        windst = home.joinpath("Documents", "PowerShell")
-        unixdst = home.joinpath(".config", "powershell")
-        dst = windst if is_windows else unixdst 
-        backup_replace(repo.joinpath("pwsh"), dst)
+    # pwsh
+    # windst = home.joinpath("Documents", "PowerShell")
+    # unixdst = home.joinpath(".config", "powershell")
+    # dst = windst if is_windows else unixdst 
+    # backup_replace(repo.joinpath("pwsh"), dst)
+    
+    # previous powershell only on windows
+    if is_windows:
+        dst = home.joinpath("Documents", "WindowsPowerShell")
+        backup_replace(repo.joinpath("powershell"), dst)
 
     # gitconfig
-    if command_exists("git"):
-        dst = home.joinpath(".gitconfig")
-        src_file = "gitconfig.windows" if is_windows else "gitconfig.linux"
-        backup_replace(repo.joinpath(src_file), dst)
+    dst = home.joinpath(".gitconfig")
+    src = "gitconfig.windows" if is_windows else "gitconfig.linux"
+        backup_replace(repo.joinpath(src), dst)
 
     # zsh
-    if command_exists("zsh"):
+    if not is_windows:
         filename = "zshrc"
         src = repo.joinpath("zshrc")
         dst = home.joinpath(add_dot(filename))
         backup_replace(src, dst)
 
     #ideavim
-    if command_exists("pycharm") or command_exists("rustrover"):
-        filename = "ideavimrc"
-        src = repo.joinpath(filename)
-        dst = home.joinpath(add_dot(filename))
-        backup_replace(src, dst)
+    filename = "ideavimrc"
+    src = repo.joinpath(filename)
+    dst = home.joinpath(add_dot(filename))
+    backup_replace(src, dst)
 
-    # nushell
-    if command_exists("nu"):
-        windst = home.joinpath("AppData", "Roaming", "nushell")
-        unixdst = home.joinpath(".config", "nushell")
-        dst = windst if is_windows else unixdst
-        backup_replace(repo.joinpath("nushell"), dst)
+    #nushell
+    windst = home.joinpath("AppData", "Roaming", "nushell")
+    unixdst = home.joinpath(".config", "nushell")
+    dst = windst if is_windows else unixdst
+    src = repo.joinpath("nushell")
+    backup_replace(src, dst)
 
-    # 看看
     # 因为python未识别导致脚本未运行，没有输出看上去就像正常执行
     # 加一句print，看到就代表脚本已运行
     print("script executed")
