@@ -7,3 +7,6 @@ history.txt
 /.idea/modules.xml
 /.idea/inspectionProfiles/profiles_settings.xml
 /.idea/vcs.xml
+state.json
+elevated-state.json
+/nvim/lazy-lock.json
