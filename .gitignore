@@ -1,12 +1,5 @@
 history.txt
-/.idea/.gitignore
-/.idea/codeStyles/codeStyleConfig.xml
-/.idea/dotfiles.iml
-/ideavimrc
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/inspectionProfiles/profiles_settings.xml
-/.idea/vcs.xml
-state.json
-elevated-state.json
+.idea/
+/windows-terminal/state.json
+/windows-terminal/elevated-state.json
 /nvim/lazy-lock.json
