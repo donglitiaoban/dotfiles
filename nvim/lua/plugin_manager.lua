@@ -24,6 +24,7 @@ require("lazy").setup({
   --   lazy = false,
   --   priority = 1000,
   -- },
+  { "xiyaowong/transparent.nvim" },
   {
     "zenbones-theme/zenbones.nvim",
     -- Optionally install Lush. Allows for more configuration 
