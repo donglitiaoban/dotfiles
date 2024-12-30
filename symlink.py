@@ -3,6 +3,7 @@ import shutil
 from pathlib import Path
 from datetime import datetime
 
+
 def backup_replace(src: Path, dst: Path) -> None:
     if dst.exists(follow_symlinks=False):
         timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
@@ -41,7 +42,7 @@ if __name__ == "__main__":
     # neovide
     # windst = home.joinpath("AppData", "Roaming", "neovide")
     # unixdst = home.joinpath(".config", "neovide")
-    # dst = windst if is_windows else unixdst 
+    # dst = windst if is_windows else unixdst
     # src = repo.joinpath("neovide")
     # backup_replace(src, dst)
 
@@ -54,9 +55,9 @@ if __name__ == "__main__":
     # pwsh
     # windst = home.joinpath("Documents", "PowerShell")
     # unixdst = home.joinpath(".config", "powershell")
-    # dst = windst if is_windows else unixdst 
+    # dst = windst if is_windows else unixdst
     # backup_replace(repo.joinpath("pwsh"), dst)
-    
+
     # previous powershell only on windows
     if is_windows:
         dst = home.joinpath("Documents", "WindowsPowerShell")
@@ -65,7 +66,7 @@ if __name__ == "__main__":
     # gitconfig
     dst = home.joinpath(".gitconfig")
     src = "gitconfig.windows" if is_windows else "gitconfig.linux"
-        backup_replace(repo.joinpath(src), dst)
+    backup_replace(repo.joinpath(src), dst)
 
     # zsh
     if not is_windows:
@@ -74,18 +75,32 @@ if __name__ == "__main__":
         dst = home.joinpath(add_dot(filename))
         backup_replace(src, dst)
 
-    #ideavim
+    # ideavim
     filename = "ideavimrc"
     src = repo.joinpath(filename)
     dst = home.joinpath(add_dot(filename))
     backup_replace(src, dst)
 
-    #nushell
+    # nushell
     windst = home.joinpath("AppData", "Roaming", "nushell")
     unixdst = home.joinpath(".config", "nushell")
     dst = windst if is_windows else unixdst
     src = repo.joinpath("nushell")
     backup_replace(src, dst)
+
+    # windows terminal preview, leave system wt as default.
+    if is_windows:
+        src = repo.joinpath("windows-terminal")
+        # dst = Path(os.getenv("LOCALAPPDATA"))
+        folders = [
+            "scoop",
+            "apps",
+            "windows-terminal-preview",
+            "current",
+            "settings"
+        ]
+        dst = home.joinpath(folders)
+        backup_replace(src, dst)
 
     # 因为python未识别导致脚本未运行，没有输出看上去就像正常执行
     # 加一句print，看到就代表脚本已运行
