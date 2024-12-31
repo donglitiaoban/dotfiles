@@ -83,7 +83,7 @@ if wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
     'FiraCode Nerd Font Mono',
     {
       family = 'Source Han Sans CN',
-      scale = 1.18,
+      scale = 1.15,
     },
   }
   end
