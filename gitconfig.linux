@@ -6,7 +6,8 @@
 [core]
 	editor = nvim
 [credential]
-	helper = /usr/bin/git-credential-manager
 	credentialStore = cache
+	helper = 
+	helper = /usr/bin/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
