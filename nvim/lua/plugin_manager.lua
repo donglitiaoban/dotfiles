@@ -14,42 +14,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- disabling luarocks becomes a undocumented feature for lazy.nvim
-  -- rocks = {
-  --   enabled = false,
-  -- },
-  --
-  -- {
-  --   'Verf/deepwhite.nvim',
-  --   lazy = false,
-  --   priority = 1000,
-  -- },
   { "xiyaowong/transparent.nvim" },
-  {
-    "zenbones-theme/zenbones.nvim",
-    -- Optionally install Lush. Allows for more configuration 
-    -- or extending the colorscheme
-    -- If you don't want to install lush, 
-    -- make sure to set g:zenbones_compat = 1
-    -- In Vim, compat mode is turned on as Lush only works in Neovim.
-    dependencies = "rktjmp/lush.nvim",
-    lazy = false,
-    priority = 1000,
-    -- you can set set configuration options here
-    -- config = function()
-    --     vim.g.zenbones_darken_comments = 45
-    --     vim.cmd.colorscheme('zenbones')
-    -- end
-  },
-  {
-    "typicode/bg.nvim",
-    lazy = false,
-    cond = jit.os ~= 'Windows',
-  },
-  -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  -- {
+  --   "typicode/bg.nvim",
+  --   lazy = false,
+  --   cond = jit.os ~= 'Windows',
+  -- },
   {
     "keaising/im-select.nvim",
     cond = jit.os ~= 'Linux',
+    lazy = true,
     config = function()
       require('im_select').setup({
         -- 有时异步执行出bug
@@ -59,7 +33,8 @@ require("lazy").setup({
   },
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    -- dependencies = { 'nvim-tree/nvim-web-devicons' },
+    -- lazy = true,
     config = function()
       require('lualine').setup({
         -- options here
@@ -71,25 +46,25 @@ require("lazy").setup({
       })
     end,
   },
-  {
-    -- trim trailing whitespaces and empty lines
-    "mcauley-penney/tidy.nvim",
-  },
-  -- Uncomment the two plugins below if you want to manage
-  -- the language servers from neovim
-  {'williamboman/mason.nvim'},
-  {'williamboman/mason-lspconfig.nvim'},
-
-  {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
-  {'neovim/nvim-lspconfig'},
-  {'hrsh7th/cmp-nvim-lsp'},
-  {'hrsh7th/nvim-cmp'},
-  {'L3MON4D3/LuaSnip'},
-  {
-    'nvim-telescope/telescope.nvim', branch = '0.1.x',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-  },
   -- {
-  --   'f-person/auto-dark-mode.nvim',
+  --   -- trim trailing whitespaces and empty lines
+  --   "mcauley-penney/tidy.nvim",
   -- },
+  -- -- Uncomment the two plugins below if you want to manage
+  -- -- the language servers from neovim
+  -- {'williamboman/mason.nvim'},
+  -- {'williamboman/mason-lspconfig.nvim'},
+
+  -- {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+  -- {'neovim/nvim-lspconfig'},
+  -- {'hrsh7th/cmp-nvim-lsp'},
+  -- {'hrsh7th/nvim-cmp'},
+  -- {'L3MON4D3/LuaSnip'},
+  -- {
+  --   'nvim-telescope/telescope.nvim', branch = '0.1.x',
+  --   dependencies = { 'nvim-lua/plenary.nvim' },
+  -- },
+  -- -- {
+  -- --   'f-person/auto-dark-mode.nvim',
+  -- -- },
 })

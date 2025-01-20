@@ -1,6 +1,46 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 
+tabline.setup({
+  options = {
+    icons_enabled = false,
+    theme = 'Catppuccin Mocha',
+    tabs_enabled = true,
+    theme_overrides = {},
+    section_separators = {
+      left = wezterm.nerdfonts.pl_left_hard_divider,
+      right = wezterm.nerdfonts.pl_right_hard_divider,
+    },
+    component_separators = {
+      left = wezterm.nerdfonts.pl_left_soft_divider,
+      right = wezterm.nerdfonts.pl_right_soft_divider,
+    },
+    tab_separators = {
+      left = wezterm.nerdfonts.pl_left_hard_divider,
+      right = wezterm.nerdfonts.pl_right_hard_divider,
+    },
+  },
+  sections = {
+    tabline_a = { 'mode' },
+    tabline_b = { 'workspace' },
+    tabline_c = { ' ' },
+    tab_active = {
+      'index',
+      { 'parent', padding = 0 },
+      '/',
+      { 'cwd', padding = { left = 0, right = 1 } },
+      { 'zoomed', padding = 0 },
+    },
+    tab_inactive = { 'index', { 'process', padding = { left = 0, right = 1 } } },
+    tabline_x = { 'ram', 'cpu' },
+    tabline_y = { 'datetime', 'battery' },
+    tabline_z = { 'domain' },
+  },
+  extensions = {},
+})
+
+config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.default_cursor_style = 'SteadyBar'
 
@@ -25,19 +65,19 @@ config.default_cursor_style = 'SteadyBar'
 -- config.color_scheme = 'Catppuccin Latte'
 -- config.color_scheme = 'Rosé Pine Dawn (Gogh)'
 
-config.color_scheme = 'zenbones'
+-- config.color_scheme = 'zenbones'
 
 config.keys = {
   {
     key = 'F11',
     action = wezterm.action.ToggleFullScreen,
   },
-  -- {
-  --   -- ignore ctrl+z
-  --   key = 'Z',
-  --   mods = 'CTRL',
-  --   action = wezterm.action.DisableDefaultAssignment,
-  -- },
+  {
+    -- ignore ctrl+z
+    key = 'Z',
+    mods = 'CTRL',
+    action = wezterm.action.DisableDefaultAssignment,
+  },
 }
 
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
@@ -47,10 +87,10 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
     config.default_prog = { 'pwsh.exe' }
   end
 
-  res = wezterm.glob('nu', os.getenv('USERPROFILE') .. '/scoop/apps')
-  if #res ~= 0 then
-    config.default_prog = { 'nu.exe' }
-  end
+  -- res = wezterm.glob('nu', os.getenv('USERPROFILE') .. '/scoop/apps')
+  -- if #res ~= 0 then
+  --   config.default_prog = { 'nu.exe' }
+  -- end
 
   config.font_size = 12
   config.line_height = 1.1
@@ -59,13 +99,22 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
     -- 'JetBrainsMono Nerd Font Mono',
     {
       family = '思源等宽',
-      scale = 1.13,
+      scale = 1.2,
     },
   }
   -- config.font = wezterm.font 'Maple Mono SC NF'
 
   config.initial_rows = 26
   config.initial_cols = 90
+
+  config.color_scheme = 'PaperColor Light (base16)'
+
+  -- win11 Mica effect
+  config.window_background_opacity = 0
+  -- config.win32_system_backdrop = 'Mica'
+  -- tabbed effect is mica with more transparency
+  config.win32_system_backdrop = 'Tabbed'
+
 end
 
 if wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
@@ -73,9 +122,9 @@ if wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
     config.default_prog = { 'zsh' }
   end
 
-  if os.execute('which nu') == true then
-    config.default_prog = { 'nu' }
-  end
+  -- if os.execute('which nu') == true then
+  --   config.default_prog = { 'nu' }
+  -- end
 
   config.font_size = 12
   -- config.font = wezterm.font 'Maple Mono SC NF'
