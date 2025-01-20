@@ -53,10 +53,10 @@ if __name__ == "__main__":
     backup_replace(repo.joinpath("nvim"), dst)
 
     # pwsh
-    # windst = home.joinpath("Documents", "PowerShell")
-    # unixdst = home.joinpath(".config", "powershell")
-    # dst = windst if is_windows else unixdst
-    # backup_replace(repo.joinpath("pwsh"), dst)
+    windst = home.joinpath("Documents", "PowerShell")
+    unixdst = home.joinpath(".config", "powershell")
+    dst = windst if is_windows else unixdst
+    backup_replace(repo.joinpath("pwsh"), dst)
 
     # previous powershell only on windows
     if is_windows:
@@ -89,18 +89,18 @@ if __name__ == "__main__":
     backup_replace(src, dst)
 
     # windows terminal preview, leave system wt as default.
-    if is_windows:
-        src = repo.joinpath("windows-terminal")
-        # dst = Path(os.getenv("LOCALAPPDATA"))
-        folders = [
-            "scoop",
-            "apps",
-            "windows-terminal-preview",
-            "current",
-            "settings"
-        ]
-        dst = home.joinpath(folders)
-        backup_replace(src, dst)
+    # if is_windows:
+    #     src = repo.joinpath("windows-terminal")
+    #     # dst = Path(os.getenv("LOCALAPPDATA"))
+    #     folders = [
+    #         "scoop",
+    #         "apps",
+    #         "windows-terminal-preview",
+    #         "current",
+    #         "settings"
+    #     ]
+    #     dst = home.joinpath(folders)
+    #     backup_replace(src, dst)
 
     # 因为python未识别导致脚本未运行，没有输出看上去就像正常执行
     # 加一句print，看到就代表脚本已运行
