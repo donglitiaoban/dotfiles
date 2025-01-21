@@ -33,7 +33,7 @@ vim.wo.signcolumn = 'yes'
 vim.o.clipboard = 'unnamedplus'
 
 -- highlight column on no.80 char
-vim.o.colorcolumn = '80'
+-- vim.o.colorcolumn = '80'
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.o.ignorecase = true

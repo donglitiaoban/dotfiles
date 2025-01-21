@@ -5,36 +5,30 @@ local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabl
 tabline.setup({
   options = {
     icons_enabled = false,
-    theme = 'Catppuccin Mocha',
+    theme = 'Atelier Cave Light (base16)',
     tabs_enabled = true,
     theme_overrides = {},
-    section_separators = {
-      left = wezterm.nerdfonts.pl_left_hard_divider,
-      right = wezterm.nerdfonts.pl_right_hard_divider,
-    },
-    component_separators = {
-      left = wezterm.nerdfonts.pl_left_soft_divider,
-      right = wezterm.nerdfonts.pl_right_soft_divider,
-    },
-    tab_separators = {
-      left = wezterm.nerdfonts.pl_left_hard_divider,
-      right = wezterm.nerdfonts.pl_right_hard_divider,
-    },
+    section_separators = '',
+    component_separators = '',
+    tab_separators = ''
   },
   sections = {
     tabline_a = { 'mode' },
-    tabline_b = { 'workspace' },
-    tabline_c = { ' ' },
+    -- tabline_b = { 'workspace' },
+    tabline_b = { '' },
+    tabline_c = { '' },
     tab_active = {
       'index',
       { 'parent', padding = 0 },
       '/',
-      { 'cwd', padding = { left = 0, right = 1 } },
+      { 'cwd', padding = { left = 0, right = 0 } },
       { 'zoomed', padding = 0 },
     },
     tab_inactive = { 'index', { 'process', padding = { left = 0, right = 1 } } },
-    tabline_x = { 'ram', 'cpu' },
-    tabline_y = { 'datetime', 'battery' },
+    -- tabline_x = { 'ram', 'cpu' },
+    tabline_x = { },
+    -- tabline_y = { 'datetime', 'battery' },
+    tabline_y = { 'datetime' },
     tabline_z = { 'domain' },
   },
   extensions = {},
@@ -106,9 +100,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
 
   config.initial_rows = 26
   config.initial_cols = 90
-
-  config.color_scheme = 'PaperColor Light (base16)'
-
+  config.color_scheme = 'Atelier Cave Light (base16)'
   -- win11 Mica effect
   config.window_background_opacity = 0
   -- config.win32_system_backdrop = 'Mica'
