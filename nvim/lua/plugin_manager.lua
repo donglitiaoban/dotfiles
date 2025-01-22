@@ -22,7 +22,7 @@ require("lazy").setup({
   -- },
   {
     "keaising/im-select.nvim",
-    cond = jit.os ~= 'Linux',
+    cond = jit.os == 'Windows',
     lazy = true,
     config = function()
       require('im_select').setup({
@@ -45,7 +45,7 @@ require("lazy").setup({
         }
       })
     end,
-  },
+  }
   -- {
   --   -- trim trailing whitespaces and empty lines
   --   "mcauley-penney/tidy.nvim",

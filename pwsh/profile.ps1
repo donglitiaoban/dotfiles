@@ -58,7 +58,7 @@ Set-PSReadLineOption @PSReadlineOptions
 function prompt {
   $prompt = Write-Prompt $(Get-Date -UFormat "%H:%M ") `
     -ForegroundColor ([ConsoleColor]::Blue)
-  # $prompt += & $GitPromptScriptBlock
+  $prompt += & $GitPromptScriptBlock
   $prompt += Get-Location
   $prompt += " >`r`n"
   if ($prompt) { "$prompt" } else { '' }
