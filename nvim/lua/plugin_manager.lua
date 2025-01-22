@@ -15,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { "xiyaowong/transparent.nvim" },
+  -- just transparent
   -- {
   --   "typicode/bg.nvim",
   --   lazy = false,
@@ -45,6 +46,10 @@ require("lazy").setup({
         }
       })
     end,
+  },
+  {
+    'echasnovski/mini.nvim', 
+    version = false
   }
   -- {
   --   -- trim trailing whitespaces and empty lines
