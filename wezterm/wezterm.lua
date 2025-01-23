@@ -39,26 +39,26 @@ config.hide_tab_bar_if_only_one_tab = true
 config.default_cursor_style = 'SteadyBar'
 
 -- -- auto change colorscheme for light/dark mode
--- local function get_appearance()
---   if wezterm.gui then
---     return wezterm.gui.get_appearance()
---   end
---   return 'Dark'
--- end
--- 
--- local function scheme_for_appearance(appearance)
---   if appearance:find 'Dark' then
---     return 'Catppuccin Mocha'
---   else
---     return 'Catppuccin Latte'
---   end
--- end
--- 
--- config.color_scheme = scheme_for_appearance(get_appearance())
+local function get_appearance()
+  if wezterm.gui then
+    return wezterm.gui.get_appearance()
+  end
+  return 'Dark'
+end
+
+local function scheme_for_appearance(appearance)
+  if appearance:find 'Dark' then
+    return 'Catppuccin Mocha'
+  else
+    return 'Catppuccin Latte'
+  end
+end
+
+config.color_scheme = scheme_for_appearance(get_appearance())
 
 -- config.color_scheme = 'Catppuccin Latte'
 -- config.color_scheme = 'Rosé Pine Dawn (Gogh)'
-
+-- 
 -- config.color_scheme = 'zenbones'
 
 config.keys = {
@@ -100,7 +100,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
 
   config.initial_rows = 26
   config.initial_cols = 90
-  config.color_scheme = 'Atelier Cave Light (base16)'
+  -- config.color_scheme = 'Atelier Cave Light (base16)'
   -- win11 Mica effect
   config.window_background_opacity = 0
   -- config.win32_system_backdrop = 'Mica'
