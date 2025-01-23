@@ -3,8 +3,20 @@ $env:POWERSHELL_UPDATECHECK='off'
 $env:HTTP_PROXY="http://127.0.0.1:55555"
 $env:HTTPS_PROXY=$HTTP_PROXY
 
+# a for alias
+# function agitstatus { git status }
+# function agitadd { git add }
+# function agitcommit { git commit }
+# function agitpush { git push }
+# function agitfetch { git fetch }
+
 New-Alias -Name n -Value nvim
 New-Alias -Name c -Value cls
+# New-Alias -Name sta -Value agitstatus
+# New-Alias -Name add  -Value agitadd
+# New-Alias -Name com -Value agitcommit
+# New-Alias -Name pus -Value agitpush 
+# New-Alias -Name fet -Value agitfetch
 
 $PSStyle.FileInfo.Directory = "`e[35;1m"
 
@@ -53,13 +65,20 @@ $PSReadLineOptions = @{
 
 Set-PSReadLineOption @PSReadlineOptions
 
+# posh-git prompt display:
+# $GitPromptScriptBlock
 # Import-Module posh-git
 
+# display time and current working directory
+# time in 24-hour format in blue
+# time turns red if in admin privilege
 function prompt {
+  $adminRole = [Security.Principal.WindowsBuiltInRole]::Administrator
   $prompt = Write-Prompt $(Get-Date -UFormat "%H:%M ") `
-    -ForegroundColor ([ConsoleColor]::Blue)
-  $prompt += & $GitPromptScriptBlock
-  $prompt += Get-Location
-  $prompt += " >`r`n"
+    -ForegroundColor ($adminRole ? [ConsoleColor]::Red : [ConsoleColor]::Blue)
+  # the prompt requires posh-git
+  # $prompt += & $GitPromptScriptBlock
+  $prompt += $(Get-Location)
+  $prompt += ">`r`n"
   if ($prompt) { "$prompt" } else { '' }
 }
