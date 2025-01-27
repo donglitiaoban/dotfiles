@@ -74,11 +74,14 @@ Set-PSReadLineOption @PSReadlineOptions
 # time turns red if in admin privilege
 function prompt {
   $adminRole = [Security.Principal.WindowsBuiltInRole]::Administrator
-  $prompt = Write-Prompt $(Get-Date -UFormat "%H:%M ") `
-    -ForegroundColor ($adminRole ? [ConsoleColor]::Red : [ConsoleColor]::Blue)
-  # the prompt requires posh-git
-  # $prompt += & $GitPromptScriptBlock
-  $prompt += $(Get-Location)
-  $prompt += ">`r`n"
-  if ($prompt) { "$prompt" } else { '' }
+  # $prompt = Write-Host -NoNewLine $(Get-Date -UFormat "%H:%M ") `
+  #   -ForegroundColor $($adminRole ? [ConsoleColor]::Red : [ConsoleColor]::Blue)
+  # # the prompt requires posh-git
+  # # $prompt += & $GitPromptScriptBlock
+  # $prompt += $(Get-Location)
+  # $prompt += ">`r`n"
+  # if ($prompt) { "$prompt" } else { '' }
+  Write-Host -NoNewLine $(Get-Date -UFormat "%H:%M ") `
+    -ForegroundColor $($adminRole ? [ConsoleColor]::Red : [ConsoleColor]::Blue)
+  "$(Get-Location)>`r`n"
 }
