@@ -57,7 +57,7 @@ vim.g.transparent_enabled = true
 -- vim.g.zenbones_italic_comments = false
 
 vim.o.termguicolors = true
-vim.o.background = 'dark'
+vim.o.background = 'light'
 -- vim.cmd.colorscheme 'catppuccin'
 -- vim.cmd.colorscheme 'zenbones'
 -- vim.cmd.colorscheme 'deepwhite'

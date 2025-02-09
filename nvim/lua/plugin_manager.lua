@@ -48,28 +48,24 @@ require("lazy").setup({
     end,
   },
   {
-    'echasnovski/mini.nvim', 
-    version = false
-  }
-  -- {
-  --   -- trim trailing whitespaces and empty lines
-  --   "mcauley-penney/tidy.nvim",
-  -- },
-  -- -- Uncomment the two plugins below if you want to manage
-  -- -- the language servers from neovim
-  -- {'williamboman/mason.nvim'},
-  -- {'williamboman/mason-lspconfig.nvim'},
+    -- trim trailing whitespaces and empty lines
+    "mcauley-penney/tidy.nvim",
+  },
+  -- Uncomment the two plugins below if you want to manage
+  -- the language servers from neovim
+  {'williamboman/mason.nvim'},
+  {'williamboman/mason-lspconfig.nvim'},
 
-  -- {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
-  -- {'neovim/nvim-lspconfig'},
-  -- {'hrsh7th/cmp-nvim-lsp'},
-  -- {'hrsh7th/nvim-cmp'},
-  -- {'L3MON4D3/LuaSnip'},
+  {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+  {'neovim/nvim-lspconfig'},
+  {'hrsh7th/cmp-nvim-lsp'},
+  {'hrsh7th/nvim-cmp'},
+  {'L3MON4D3/LuaSnip'},
+  {
+    'nvim-telescope/telescope.nvim', branch = '0.1.x',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
   -- {
-  --   'nvim-telescope/telescope.nvim', branch = '0.1.x',
-  --   dependencies = { 'nvim-lua/plenary.nvim' },
+  --   'f-person/auto-dark-mode.nvim',
   -- },
-  -- -- {
-  -- --   'f-person/auto-dark-mode.nvim',
-  -- -- },
 })
